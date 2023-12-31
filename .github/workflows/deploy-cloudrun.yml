@@ -22,13 +22,13 @@ jobs:
           service_account: '${{ secrets.WIF_SERVICE_ACCOUNT }}'
 
       - name: 'Configure Docker'
-        run: |-
+        run: |
           gcloud auth configure-docker us-central1-docker.pkg.dev
 
       - name: 'Build, push, and deploy container'
-          run: |-
-            cd backend
-            ./build.sh
-            ./push.sh
-            ./deploy.sh
+        run: |
+          cd backend
+          ./build.sh
+          ./push.sh
+          ./deploy.sh
 
