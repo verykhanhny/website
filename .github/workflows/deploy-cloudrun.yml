@@ -19,6 +19,10 @@ jobs:
       - name: 'Checkout'
         uses: 'actions/checkout@v3'
 
+      - name: 'Deploy frontend'
+        run: |
+          git subtree push --prefix frontend main gh-pages
+
       - name: 'Google auth'
         id: 'auth'
         uses: 'google-github-actions/auth@v1'
@@ -35,10 +39,9 @@ jobs:
           username: 'oauth2accesstoken'
           password: '${{ steps.auth.outputs.access_token }}'
 
-      - name: 'Build, push, and deploy container'
+      - name: 'Build, push, and deploy backend'
         run: |
           cd backend
           ./build.sh
           ./push.sh
           ./deploy.sh
-
