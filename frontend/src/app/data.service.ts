@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class DataService {
-  private apiUrl = 'https://website-ahw5o6wuoa-uc.a.run.app'; // Replace with your API URL
+  private apiUrl = 'https://backend-ahw5o6wuoa-uc.a.run.app'; // Replace with your API URL
 
   constructor(private http: HttpClient) {}
 
