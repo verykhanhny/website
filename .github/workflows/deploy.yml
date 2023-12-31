@@ -1,19 +1,17 @@
-name: Deploy Backend Cloudrun
+name: Deploy
 
 on:
   push:
     branches:
       - main
 
+permissions:
+  contents: 'write'
+  id-token: 'write'
+
 jobs:
-  deploy:
+  deploy-frontend:
     runs-on: ubuntu-latest
-
-    environment: gcp-cloudrun
-
-    permissions:
-      contents: 'write'
-      id-token: 'write'
 
     steps:
       - name: 'Checkout'
@@ -26,6 +24,15 @@ jobs:
           BRANCH: gh-pages
           FOLDER: frontend
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  deploy-backend:
+    runs-on: ubuntu-latest
+
+    environment: gcp-cloudrun
+
+    steps:
+      - name: 'Checkout'
+        uses: 'actions/checkout@v3'
 
       - name: 'Google auth'
         id: 'auth'
