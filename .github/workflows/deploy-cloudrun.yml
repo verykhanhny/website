@@ -22,7 +22,7 @@ jobs:
       - name: 'Deploy frontend'
         uses: s0/git-publish-subdir-action@develop
         env:
-          REPO: website
+          REPO: self
           BRANCH: gh-pages
           FOLDER: frontend
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
