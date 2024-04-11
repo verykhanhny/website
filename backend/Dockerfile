@@ -1,14 +1,13 @@
-# Use the official Golang image as the base image
-FROM golang:1.21.5
+# Use an official Node runtime as a base image
+FROM node:18.19.0
 
-# Set the working directory inside the container
-WORKDIR /app
+# Set the working directory in the container
+WORKDIR /usr/src/app
 
-# Copy the local source code to the container's working directory
+# Copy the application files to the container
 COPY . .
 
-# Build the Go application inside the container
-RUN go build -o main .
+# Install the app dependencies
+RUN npm ci --only=production
 
-# Command to run the executable when the container starts
-CMD ["./main"]
+CMD ["npm", "start"]

@@ -14,7 +14,7 @@ RUN npm install
 RUN npm run build --prod
 
 # Use a smaller, official image for the production build
-FROM nginx:alpine
+FROM nginx:latest
 
 # Copy the build output to the NGINX HTML directory
 COPY --from=build /usr/src/app/dist/frontend/browser /usr/share/nginx/html
