@@ -1,8 +1,12 @@
 // Importing required modules
 const express = require('express');
+const cors = require('cors')
 
 // Create an Express application
 const app = express();
+
+// Enable CORS for all routes
+app.use(cors());
 
 // Define a route handler for a custom endpoint '/api'
 app.get('/api', (req, res) => {
