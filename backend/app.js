@@ -4,7 +4,7 @@ const express = require('express');
 // Create an Express application
 const app = express();
 
-// Define a route handler for a custom endpoint '/api/data'
+// Define a route handler for a custom endpoint '/api'
 app.get('/api', (req, res) => {
     const data = {
         message: 'This is some data from the server!',
